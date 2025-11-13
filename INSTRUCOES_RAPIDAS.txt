@@ -1,0 +1,69 @@
+═══════════════════════════════════════════════════════════
+  QUIZ DE FUNÇÕES DE LINGUAGEM - INSTRUÇÕES RÁPIDAS
+═══════════════════════════════════════════════════════════
+
+📌 PASSO 1: INICIAR O BACKEND
+------------------------------
+cd quiz-funcoes-linguagem
+python3 app.py
+
+⚠️ Deixe este terminal aberto! O backend precisa ficar rodando.
+
+
+📌 PASSO 2: INICIAR O FRONTEND (em outro terminal)
+---------------------------------------------------
+cd quiz-funcoes-linguagem
+python3 -m http.server 8080
+
+
+📌 PASSO 3: ACESSAR O SISTEMA
+------------------------------
+👨‍🎓 ALUNOS:
+   http://localhost:8080/index.html
+
+👨‍🏫 PROFESSOR:
+   http://localhost:8080/professor.html
+   Token: professor123
+
+
+═══════════════════════════════════════════════════════════
+  INFORMAÇÕES IMPORTANTES
+═══════════════════════════════════════════════════════════
+
+✅ Total de questões: 15
+✅ Pontuação máxima: 3,0 pontos
+✅ Cada questão vale: 0,2 pontos
+✅ Tipos de questões:
+   - Múltipla escolha
+   - Verdadeiro ou Falso
+   - Arrastar e soltar
+
+✅ O aluno NÃO vê se acertou ou errou
+✅ Cada aluno pode fazer apenas UMA vez
+✅ O professor vê TUDO no painel administrativo
+
+
+═══════════════════════════════════════════════════════════
+  PAINEL DO PROFESSOR
+═══════════════════════════════════════════════════════════
+
+O painel mostra AUTOMATICAMENTE:
+✅ Pontuação de cada aluno (0 a 3,0)
+✅ Percentual de acerto
+✅ Número de questões corretas
+✅ Tempo gasto
+✅ Ranking da turma
+✅ Média geral
+✅ Maior e menor nota
+
+Você pode:
+📥 Exportar para CSV
+🖨️ Imprimir relatório
+
+
+═══════════════════════════════════════════════════════════
+  DÚVIDAS?
+═══════════════════════════════════════════════════════════
+
+Leia o arquivo README.md para instruções completas!
+

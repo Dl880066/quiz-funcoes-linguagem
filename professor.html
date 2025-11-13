@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Professor - Resultados do Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00f3ff;
+      --secondary: #ff00ff;
+      --background: #0a0a1a;
+      --surface: #15152b;
+      --text: #ffffff;
+      --accent: #00ff88;
+      --warning: #ffaa00;
+      --danger: #ff4444;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      padding: 2rem;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+      letter-spacing: 3px;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+    .input-group {
+      text-align: center;
+      margin-bottom: 2rem;
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--primary);
+      box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+    }
+    input {
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--primary);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-size: 1rem;
+      width: 300px;
+      font-family: 'Rajdhani', sans-serif;
+      transition: all 0.3s ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+    }
+    button {
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary), #00a8b5);
+      color: var(--background);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+      font-family: 'Orbitron', sans-serif;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 243, 255, 0.4);
+    }
+    button:active {
+      transform: translateY(0);
+    }
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--primary);
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 25px rgba(0, 243, 255, 0.3);
+    }
+    .stat-card h3 {
+      color: var(--primary);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .stat-card .value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: 'Orbitron', sans-serif;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+    }
+    th, td {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, var(--primary), #00a8b5);
+      color: var(--background);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    tr:hover {
+      background: rgba(0, 243, 255, 0.05);
+    }
+    .nota-alta {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .nota-media {
+      color: var(--warning);
+      font-weight: 700;
+    }
+    .nota-baixa {
+      color: var(--danger);
+      font-weight: 700;
+    }
+    .status-message {
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .status-loading {
+      background: rgba(0, 243, 255, 0.1);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+    .status-success {
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .status-error {
+      background: rgba(255, 68, 68, 0.1);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+    .status-warning {
+      background: rgba(255, 170, 0, 0.1);
+      border: 1px solid var(--warning);
+      color: var(--warning);
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      padding: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .export-buttons {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .btn-export {
+      background: linear-gradient(135deg, var(--secondary), #b300b3);
+      margin: 0 0.5rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Painel do Professor</h1>
+    <p class="subtitle">Sistema de Avaliação - Funções da Linguagem</p>
+    
+    <div class="input-group">
+      <input type="password" id="token" placeholder="Digite o token do professor" onkeypress="if(event.key==='Enter') carregarResultados()">
+      <button onclick="carregarResultados()">🔍 Ver Resultados</button>
+      <button onclick="limparDados()" style="background: linear-gradient(135deg, var(--danger), #cc0000);">🗑️ Limpar Tela</button>
+    </div>
+
+    <div id="status"></div>
+
+    <div id="statsContainer" style="display:none;" class="stats-container fade-in">
+      <div class="stat-card">
+        <h3>Total de Alunos</h3>
+        <div class="value" id="totalAlunos">0</div>
+      </div>
+      <div class="stat-card">
+        <h3>Média Geral</h3>
+        <div class="value" id="mediaGeral">0,00</div>
+      </div>
+      <div class="stat-card">
+        <h3>Maior Nota</h3>
+        <div class="value" id="maiorNota">0,00</div>
+      </div>
+      <div class="stat-card">
+        <h3>Menor Nota</h3>
+        <div class="value" id="menorNota">0,00</div>
+      </div>
+    </div>
+
+    <div class="export-buttons" id="exportButtons" style="display:none;">
+      <button class="btn-export" onclick="exportarCSV()">📥 Exportar CSV</button>
+      <button class="btn-export" onclick="imprimirRelatorio()">🖨️ Imprimir Relatório</button>
+    </div>
+
+    <table id="tabelaResultados" style="display:none;" class="fade-in">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome do Aluno</th>
+          <th>E-mail</th>
+          <th>Pontuação Final</th>
+          <th>Percentual</th>
+          <th>Questões Corretas</th>
+          <th>Tempo Total</th>
+          <th>Última Submissão</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaCorpo"></tbody>
+    </table>
+
+    <div class="footer">
+      Sistema de Quiz Avaliativo v3.0 | Desenvolvido para PIBID - Funções de Linguagem
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = "http://127.0.0.1:5000";
+    let dadosGlobais = null;
+
+    async function carregarResultados() {
+      const token = document.getElementById('token').value.trim();
+      if (!token) {
+        mostrarStatus('Digite o token do professor.', 'error');
+        return;
+      }
+
+      const statusDiv = document.getElementById('status');
+      const tabela = document.getElementById('tabelaResultados');
+      const corpo = document.getElementById('tabelaCorpo');
+      const statsContainer = document.getElementById('statsContainer');
+      const exportButtons = document.getElementById('exportButtons');
+
+      mostrarStatus('🔄 Carregando dados do servidor...', 'loading');
+      tabela.style.display = "none";
+      statsContainer.style.display = "none";
+      exportButtons.style.display = "none";
+      corpo.innerHTML = "";
+
+      try {
+        const res = await fetch(`${API_BASE}/admin/results?token=${token}`);
+        if (!res.ok) {
+          mostrarStatus('❌ Token inválido ou erro no servidor.', 'error');
+          return;
+        }
+
+        const data = await res.json();
+        if (!data.results || data.results.length === 0) {
+          mostrarStatus('⚠️ Nenhum resultado encontrado ainda.', 'warning');
+          return;
+        }
+
+        // Processar dados
+        const alunos = {};
+        const TOTAL_QUESTOES = 15;
+        const PONTUACAO_MAXIMA = 3.0;
+
+        data.results.forEach(r => {
+          const emailMatch = r.student_id.match(/- (.+)$/);
+          const email = emailMatch ? emailMatch[1].toLowerCase() : 'desconhecido';
+          const nome = r.student_id.split(' - ')[0];
+
+          if (!alunos[email]) {
+            alunos[email] = {
+              nome: nome,
+              email: email,
+              pontos: 0,
+              corretas: 0,
+              total: 0,
+              tempoTotal: 0,
+              ultimaSubmissao: r.timestamp
+            };
+          }
+
+          const pontos = parseFloat(r.score || 0);
+          alunos[email].pontos += pontos;
+          alunos[email].total++;
+          
+          if (r.correct === 'True' || r.correct === true || r.correct === 'true') {
+            alunos[email].corretas++;
+          }
+          
+          alunos[email].tempoTotal += parseInt(r.time_spent || 0);
+          
+          if (new Date(r.timestamp) > new Date(alunos[email].ultimaSubmissao)) {
+            alunos[email].ultimaSubmissao = r.timestamp;
+          }
+        });
+
+        // Calcular estatísticas
+        const listaAlunos = Object.values(alunos);
+        const totalAlunos = listaAlunos.length;
+        const notas = listaAlunos.map(a => a.pontos);
+        const mediaGeral = notas.reduce((a, b) => a + b, 0) / totalAlunos;
+        const maiorNota = Math.max(...notas);
+        const menorNota = Math.min(...notas);
+
+        // Atualizar cards de estatísticas
+        document.getElementById('totalAlunos').textContent = totalAlunos;
+        document.getElementById('mediaGeral').textContent = mediaGeral.toFixed(2).replace('.', ',');
+        document.getElementById('maiorNota').textContent = maiorNota.toFixed(2).replace('.', ',');
+        document.getElementById('menorNota').textContent = menorNota.toFixed(2).replace('.', ',');
+
+        // Ordenar por pontuação (maior para menor)
+        listaAlunos.sort((a, b) => b.pontos - a.pontos);
+
+        // Preencher tabela
+        listaAlunos.forEach((aluno, index) => {
+          const percentual = (aluno.pontos / PONTUACAO_MAXIMA) * 100;
+          const minutos = Math.floor(aluno.tempoTotal / 60);
+          const segundos = aluno.tempoTotal % 60;
+          
+          let classeNota = 'nota-media';
+          if (percentual >= 70) classeNota = 'nota-alta';
+          else if (percentual < 50) classeNota = 'nota-baixa';
+
+          const linha = `
+            <tr>
+              <td><strong>${index + 1}º</strong></td>
+              <td>${aluno.nome}</td>
+              <td>${aluno.email}</td>
+              <td class="${classeNota}">${aluno.pontos.toFixed(2).replace('.', ',')}</td>
+              <td class="${classeNota}">${percentual.toFixed(1)}%</td>
+              <td>${aluno.corretas}/${TOTAL_QUESTOES}</td>
+              <td>${minutos}min ${segundos}s</td>
+              <td>${new Date(aluno.ultimaSubmissao).toLocaleString('pt-BR')}</td>
+            </tr>`;
+          corpo.innerHTML += linha;
+        });
+
+        dadosGlobais = listaAlunos;
+        
+        tabela.style.display = "table";
+        statsContainer.style.display = "grid";
+        exportButtons.style.display = "block";
+        mostrarStatus(`✅ ${totalAlunos} aluno(s) avaliado(s) com sucesso!`, 'success');
+
+      } catch (err) {
+        mostrarStatus('❌ Erro ao conectar com o servidor. Verifique se o backend está rodando.', 'error');
+        console.error(err);
+      }
+    }
+
+    function mostrarStatus(mensagem, tipo) {
+      const statusDiv = document.getElementById('status');
+      let classe = 'status-loading';
+      if (tipo === 'success') classe = 'status-success';
+      else if (tipo === 'error') classe = 'status-error';
+      else if (tipo === 'warning') classe = 'status-warning';
+      
+      statusDiv.innerHTML = `<div class="status-message ${classe}">${mensagem}</div>`;
+    }
+
+    function limparDados() {
+      document.getElementById('tabelaResultados').style.display = 'none';
+      document.getElementById('statsContainer').style.display = 'none';
+      document.getElementById('exportButtons').style.display = 'none';
+      document.getElementById('status').innerHTML = '';
+      document.getElementById('tabelaCorpo').innerHTML = '';
+      document.getElementById('token').value = '';
+      dadosGlobais = null;
+    }
+
+    function exportarCSV() {
+      if (!dadosGlobais) return alert('Carregue os dados primeiro.');
+      
+      let csv = 'Posição,Nome,E-mail,Pontuação,Percentual,Corretas,Tempo Total\n';
+      dadosGlobais.forEach((aluno, index) => {
+        const percentual = (aluno.pontos / 3.0) * 100;
+        const tempo = `${Math.floor(aluno.tempoTotal / 60)}min ${aluno.tempoTotal % 60}s`;
+        csv += `${index + 1},${aluno.nome},${aluno.email},${aluno.pontos.toFixed(2)},${percentual.toFixed(1)}%,${aluno.corretas}/15,${tempo}\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `resultados_quiz_${new Date().toISOString().split('T')[0]}.csv`;
+      link.click();
+    }
+
+    function imprimirRelatorio() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

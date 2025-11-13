@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Gamificado - Funções da Linguagem</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Boas-Vindas -->
+        <div id="welcome-screen" class="screen active">
+            <div class="header">
+                <h1 class="title-glitch">QUIZ LINGUAGEM</h1>
+                <div class="subtitle">Funções da Linguagem</div>
+            </div>
+            
+            <div class="player-setup">
+                <div class="input-group">
+                    <label for="player-name">Nome Completo:</label>
+                    <input type="text" id="player-name" placeholder="Digite seu nome">
+                </div>
+                <div class="input-group">
+                    <label for="player-email">E-mail Institucional:</label>
+                    <input type="email" id="player-email" placeholder="seu.email@escola.com">
+                </div>
+            </div>
+
+            <div class="theme-card">
+                <div class="theme-icon">🚀</div>
+                <h3>Modo Avaliativo</h3>
+                <p>• Sem feedback imediato<br>• Tempo registrado por questão<br>• Resultados apenas para o professor</p>
+            </div>
+
+            <button id="start-tutorial" class="btn-primary">INICIAR TUTORIAL</button>
+        </div>
+
+        <!-- Tela de Tutorial -->
+        <div id="tutorial-screen" class="screen">
+            <div class="tutorial-container">
+                <div class="mascote">
+                    <div class="robot">🤖</div>
+                    <div class="speech-bubble">Vou te ensinar como funciona o quiz!</div>
+                </div>
+                
+                <div class="tutorial-steps">
+                    <div class="step active" data-step="1">
+                        <h3>Passo 1: Leia a Questão</h3>
+                        <p>Analise cuidadosamente o texto ou enunciado apresentado.</p>
+                    </div>
+                    <div class="step" data-step="2">
+                        <h3>Passo 2: Identifique a Função</h3>
+                        <p>Baseado na teoria de Jakobson, escolha a função predominante.</p>
+                    </div>
+                    <div class="step" data-step="3">
+                        <h3>Passo 3: Selecione e Avance</h3>
+                        <p>Clique na resposta e confirme para seguir para a próxima.</p>
+                    </div>
+                </div>
+
+                <div class="tutorial-demo">
+                    <div class="demo-question">
+                        <p class="demo-text">"Alô? Você está me ouvindo?"</p>
+                        <div class="demo-options">
+                            <div class="demo-option">Função Fática</div>
+                            <div class="demo-option">Função Emotiva</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="start-quiz" class="btn-primary">ENTENDI! INICIAR QUIZ</button>
+            </div>
+        </div>
+
+        <!-- Tela do Quiz -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="player-info">
+                    <span id="current-player">João Silva</span>
+                    <div class="sound-toggle">
+                        <button id="sound-btn">🔊</button>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>QUESTÃO <span id="current-question">1</span>/<span id="total-questions">10</span></span>
+                        <span id="timer">00:00</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-card">
+                    <!-- TODO O CONTEÚDO DO CARD, INCLUINDO O BOTÃO, AGORA ROLA JUNTO -->
+                    <div class="question-type" id="question-type">MÚLTIPLA ESCOLHA</div>
+                    <h2 id="question-text">Carregando questão...</h2>
+                    
+                    <div id="question-content">
+                        <!-- Conteúdo específico da questão -->
+                    </div>
+
+                    <div class="options-container" id="options-container">
+                        <!-- Opções serão inseridas via JavaScript -->
+                    </div>
+
+                    <div class="fill-blank-container" id="fill-blank-container" style="display: none;">
+                        <input type="text" id="blank-answer" placeholder="Digite sua resposta...">
+                    </div>
+                    
+                    <!-- O CONTROLE/BOTÃO AGORA ESTÁ DENTRO DO question-card! -->
+                    <div class="quiz-controls">
+                        <button id="submit-answer" class="btn-primary" disabled>CONFIRMAR RESPOSTA</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Finalização -->
+        <div id="completion-screen" class="screen">
+            <div class="completion-container">
+                <div class="completion-icon">🎯</div>
+                <h2>QUIZ CONCLUÍDO!</h2>
+                <p>Seu desempenho foi registrado e será analisado pelo professor.</p>
+                <div class="completion-info">
+                    <p><strong>Nome:</strong> <span id="completion-name">-</span></p>
+                    <p><strong>Total de Questões:</strong> <span id="completion-total">-</span></p>
+                    <p><strong>Tempo Total:</strong> <span id="completion-time">-</span></p>
+                </div>
+                <button id="restart-quiz" class="btn-secondary">VOLTAR AO INÍCIO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Efeitos Sonoros -->
+    <audio id="sound-click" preload="auto">
+        <source src="assets/sounds/click.wav" type="audio/wav">
+    </audio>
+    <audio id="sound-correct" preload="auto">
+        <source src="assets/sounds/correct.wav" type="audio/wav">
+    </audio>
+    <audio id="sound-wrong" preload="auto">
+        <source src="assets/sounds/wrong.wav" type="audio/wav">
+    </audio>
+    <audio id="sound-complete" preload="auto">
+        <source src="assets/sounds/complete.wav" type="audio/wav">
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+{
+  "quiz_title": "Funções da Linguagem - Roman Jakobson",
+  "total_score": 3.0,
+  "questions": [
+    {
+      "id": "q1_unifesp",
+      "type": "multiple_choice",
+      "question": "Dois dos cinco textos transcritos expressam sentimentos de incontida revolta diante de situações inaceitáveis. Esse transbordamento sentimental se faz por meio de frases e recursos linguísticos que dão ênfase à função emotiva e à função conativa da linguagem. Esses dois textos são:",
+      "context": "<strong>Texto II:</strong> 'Tu choraste em presença da morte? / Na presença de estranhos choraste? / Não descende o cobarde do forte; / Pois choraste, meu filho não és!' (Gonçalves Dias)<br><br><strong>Texto V:</strong> 'Meu Deus! Meu Deus! / Mas que bandeira é esta, / Que impudente na gávea tripudia?!... / Silêncio! ... Musa! Chora, chora tanto / Que o pavilhão se lave no teu pranto...' (Castro Alves)",
+      "options": ["I e IV", "II e III", "II e V", "III e V", "IV e V"],
+      "correct_answer": "II e V"
+    },
+    {
+      "id": "q2_enem_2014",
+      "type": "multiple_choice",
+      "question": "O telefone tocou. — Alô? Quem fala? — Como? Com quem deseja falar? — Quero falar com o sr. Samuel Cardoso. — É ele mesmo. Quem fala, por obséquio? — Não se lembra mais da minha voz, seu Samuel? Faça um esforço. — Lamento muito, minha senhora, mas não me lembro. Pode dizer-me de quem se trata?",
+      "context": "Pela insistência em manter o contato entre o emissor e o receptor, predomina no texto a função:",
+      "options": ["Metalinguística", "Fática", "Referencial", "Emotiva", "Conativa"],
+      "correct_answer": "Fática"
+    },
+    {
+      "id": "q3_insper",
+      "type": "drag_drop",
+      "question": "A metalinguagem, presente no poema de Tristan Tzara sobre como fazer um poema dadaísta, também é encontrada de modo mais evidente em qual alternativa?",
+      "context": "Complete arrastando: A função ________ ocorre quando a linguagem fala sobre a própria linguagem.",
+      "correct_answer": "Metalinguística",
+      "alternatives": ["Metalinguística", "Poética", "Fática", "Referencial", "Emotiva", "Conativa"]
+    },
+    {
+      "id": "q4_enem_2010",
+      "type": "multiple_choice",
+      "question": "'A biosfera, que reúne todos os ambientes onde se desenvolvem os seres vivos, se divide em unidades menores chamadas ecossistemas, que tem múltiplos mecanismos que regulam o número de organismos dentro dele, controlando sua reprodução, crescimento e migrações.'",
+      "context": "Predomina no texto a função da linguagem:",
+      "options": ["Emotiva, porque o autor expressa seu sentimento em relação à ecologia", "Fática, porque o texto testa o funcionamento do canal de comunicação", "Poética, porque o texto chama a atenção para os recursos de linguagem", "Conativa, porque o texto procura orientar comportamentos do leitor", "Referencial, porque o texto trata de noções e informações conceituais"],
+      "correct_answer": "Referencial, porque o texto trata de noções e informações conceituais"
+    },
+    {
+      "id": "q5_relacionar",
+      "type": "drag_drop",
+      "question": "'Não deixe para depois. Compre já seu carro novo!'",
+      "context": "Arraste a função de linguagem predominante neste texto publicitário:",
+      "correct_answer": "Conativa",
+      "alternatives": ["Conativa", "Emotiva", "Fática", "Poética", "Referencial", "Metalinguística"]
+    },
+    {
+      "id": "q6_enem_2020",
+      "type": "multiple_choice",
+      "question": "De acordo com as intenções comunicativas e os recursos linguísticos que se destacam, determinadas funções são atribuídas à linguagem. Em uma campanha eleitoral com a mensagem 'Vote consciente. Corrija e confirme seu voto', a função que predomina é a conativa, uma vez que:",
+      "options": ["Atua sobre o interlocutor, procurando convencê-lo a realizar sua escolha de maneira consciente", "Coloca em evidência o canal de comunicação pelo uso das palavras 'corrige' e 'confirma'", "Privilegia o texto verbal, de base informativa, em detrimento do texto não verbal", "Usa a imagem como único recurso para interagir com o público a que se destina", "Evidencia as emoções do enunciador ao usar a imagem de uma criança"],
+      "correct_answer": "Atua sobre o interlocutor, procurando convencê-lo a realizar sua escolha de maneira consciente"
+    },
+    {
+      "id": "q7_cora_coralina",
+      "type": "multiple_choice",
+      "question": "'Mesmo quando tudo parece desabar, cabe a mim decidir entre rir ou chorar, ir ou ficar, desistir ou lutar, porque descobri, no caminho incerto da vida, que o mais importante é o decidir.' (Cora Coralina)",
+      "context": "No texto, a função emotiva da linguagem pode ser identificada por meio da característica indicada em:",
+      "options": ["Objetividade da informação transmitida, ausentando-se juízo de valor sobre o tema", "Emprego de formas verbais no pretérito, mantendo uma relação comparativa entre o eu passado e o eu presente", "Evidência do código reproduzido por meio dele próprio, esclarecendo o assunto principal", "Mensagem centrada no emissor, deixando claros seus anseios e suas percepções sobre a própria vida", "Presença de marcas de interlocução, legitimando o canal de comunicação"],
+      "correct_answer": "Mensagem centrada no emissor, deixando claros seus anseios e suas percepções sobre a própria vida"
+    },
+    {
+      "id": "q8_drummond",
+      "type": "multiple_choice",
+      "question": "Na crônica 'Diálogo de todo dia' de Carlos Drummond de Andrade, há um diálogo telefônico confuso que começa com: '— Alô, quem fala? — Ninguém. Quem fala é você que está perguntando quem fala. — Mas eu preciso saber com quem estou falando...'",
+      "context": "A confusão entre os falantes é desencadeada por um trecho em que predomina a função da linguagem:",
+      "options": ["Conativa, pois pretende-se saber com quem se fala e, por isso, o emissor se direciona ao receptor", "Poética, pois ressai a intenção de construir uma narrativa humorística a partir de um jogo de linguagem", "Fática, pois a pergunta sobre quem fala inicia o diálogo ao abrir o canal de comunicação", "Fática, pois o autor vale-se de marcas de oralidade ao longo do diálogo", "Emotiva, pois emprega-se uma linguagem predominantemente figurativa"],
+      "correct_answer": "Fática, pois a pergunta sobre quem fala inicia o diálogo ao abrir o canal de comunicação"
+    },
+    {
+      "id": "q9_tramontana",
+      "type": "multiple_choice",
+      "question": "No texto 'Perder a tramontana', o autor remonta às origens da expressão. Ao tratar do significado dessa expressão, utilizando a função referencial da linguagem, o autor busca:",
+      "context": "'É perder o norte, desorientar-se. Ao pé da letra, \"perder a tramontana\" significa deixar de ver a estrela polar, em italiano stella tramontana, situada do outro lado dos montes, que guiava os marinheiros antigos em suas viagens desbravadoras.'",
+      "options": ["Apresentar seus indícios subjetivos", "Convencer o leitor a utilizá-la", "Expor dados reais de seu emprego", "Explorar sua dimensão estética", "Criticar sua origem conceitual"],
+      "correct_answer": "Expor dados reais de seu emprego"
+    },
+    {
+      "id": "q10_ressignificados",
+      "type": "drag_drop",
+      "question": "Em uma simulação de verbete de dicionário sobre 'aniversário', há elementos que subvertem o gênero por meio da incorporação marcante de características de qual função?",
+      "context": "Texto: 'Aniversário: é quando eu esqueço o que não importa. É a felicidade fazendo visita. É festejar o próprio ser (valeu, galera)!'<br><br>Arraste a função predominante:",
+      "correct_answer": "Emotiva",
+      "alternatives": ["Emotiva", "Conativa", "Poética", "Fática", "Referencial", "Metalinguística"]
+    },
+    {
+      "id": "q11_verdadeiro_falso_1",
+      "type": "true_false",
+      "question": "A frase 'Alô? Você está me ouvindo?' é um exemplo da função fática da linguagem.",
+      "correct_answer": "Verdadeiro"
+    },
+    {
+      "id": "q12_verdadeiro_falso_2",
+      "type": "true_false",
+      "question": "A função emotiva está centrada no emissor e expressa sentimentos e subjetividade.",
+      "correct_answer": "Verdadeiro"
+    },
+    {
+      "id": "q13_verdadeiro_falso_3",
+      "type": "true_false",
+      "question": "Mensagens publicitárias costumam empregar a função conativa da linguagem.",
+      "correct_answer": "Verdadeiro"
+    },
+    {
+      "id": "q14_verdadeiro_falso_4",
+      "type": "true_false",
+      "question": "A função referencial prioriza a subjetividade do emissor.",
+      "correct_answer": "Falso"
+    },
+    {
+      "id": "q15_verdadeiro_falso_5",
+      "type": "true_false",
+      "question": "A função fática serve para iniciar, manter ou encerrar o contato entre os interlocutores.",
+      "correct_answer": "Verdadeiro"
+    }
+  ]
+}
