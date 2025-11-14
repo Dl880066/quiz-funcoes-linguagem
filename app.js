@@ -2,7 +2,7 @@
 //  CONFIGURAÇÕES GLOBAIS
 // =============================
 const CONFIG = {
-    API_BASE_URL: 'https://quiz-pibid-funcoes.onrender.com',
+    API_BASE_URL: 'https://quiz-funcoes-linguagem-1.onrender.com',
     SOUND_ENABLED: false,
     TRANSITION_DURATION: 600
 };
